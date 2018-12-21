@@ -17,8 +17,7 @@ RUN mkdir $APP_ENV
 WORKDIR $APP_ENV
 COPY Gemfile ${APP_ROOT}/Gemfile
 COPY Gemfile.lock ${APP_ROOT}/Gemfile.lock
+COPY entrypoint.sh /entrypoint.sh
 RUN bundle install
 COPY . $APP_ROOT
-
-COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
