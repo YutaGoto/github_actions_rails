@@ -20,6 +20,5 @@ COPY Gemfile.lock ${APP_ROOT}/Gemfile.lock
 RUN bundle install
 COPY . $APP_ROOT
 
-RUN bundle exec rails db:create
-RUN bundle exec rails db:schema:load
-RUN bundle exec rspec --format progress
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
