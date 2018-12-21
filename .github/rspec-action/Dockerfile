@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.5.3-node-browsers
+FROM ruby:2.5.3
 
 LABEL "com.github.actions.name"="Rspec"
 LABEL "com.github.actions.description"="Rspecを実行する"
