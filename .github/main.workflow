@@ -4,6 +4,6 @@ workflow "Main workflow" {
 }
 
 action "Rspec" {
-  uses = "./.github/rspec-action"
+  uses = "./"
   runs = ".github/rspec-action/entrypoint.sh"
 }
