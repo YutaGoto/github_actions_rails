@@ -15,3 +15,7 @@ COPY Gemfile ${APP_ROOT}/Gemfile
 COPY Gemfile.lock ${APP_ROOT}/Gemfile.lock
 RUN bundle install
 COPY . $APP_ROOT
+
+RUN bundle exec rails db:create
+RUN bundle exec rails db:schema:load
+RUN bundle exec rspec --format progress
