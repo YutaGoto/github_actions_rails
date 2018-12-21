@@ -8,6 +8,8 @@ ENV LANG C.UTF-8
 ENV APP_ENV /app
 
 RUN apt-get update -qq && apt-get install -y build-essential postgresql-client
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash
 
 RUN mkdir $APP_ENV
 WORKDIR $APP_ENV
