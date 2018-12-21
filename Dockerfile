@@ -1,4 +1,4 @@
-FROM ruby:2.5.3
+FROM circleci/ruby:2.5.3-node-browsers
 
 LABEL "repository"="https://github.com/YutaGoto/github_actions_rails"
 LABEL "homepage"="https://github.com/YutaGoto/github_actions_rails"
