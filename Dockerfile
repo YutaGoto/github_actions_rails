@@ -1,9 +1,5 @@
 FROM ruby:2.5.3
 
-LABEL "repository"="https://github.com/YutaGoto/github_actions_rails"
-LABEL "homepage"="https://github.com/YutaGoto/github_actions_rails"
-LABEL "maintainer"="YutaGoto <you.goto.510@gmail.com>"
-
 ENV LANG C.UTF-8
 ENV APP_ENV /app
 
@@ -17,7 +13,5 @@ RUN mkdir $APP_ENV
 WORKDIR $APP_ENV
 COPY Gemfile ${APP_ROOT}/Gemfile
 COPY Gemfile.lock ${APP_ROOT}/Gemfile.lock
-COPY entrypoint.sh /entrypoint.sh
 RUN bundle install
 COPY . $APP_ROOT
-ENTRYPOINT ["/entrypoint.sh"]
