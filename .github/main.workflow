@@ -9,9 +9,16 @@ action "Build" {
   secrets = ["GITHUB_TOKEN"]
 }
 
-action "Rspec" {
+action "Migration" {
   uses = "actions/docker/cli@master"
   needs = ["Build"]
+  args = "run ci-$GITHUB_SHA:latest rails db:create && run ci-$GITHUB_SHA:latest rails db:schema:load"
+  secrets = ["GITHUB_TOKEN"]
+}
+
+action "Rspec" {
+  uses = "actions/docker/cli@master"
+  needs = ["Migration"]
   args = "run ci-$GITHUB_SHA:latest rspec"
   secrets = ["GITHUB_TOKEN"]
 }
