@@ -11,6 +11,7 @@ RUN curl -sL https://deb.nodesource.com/setup_9.x | bash
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get install -y yarn
 RUN /etc/init.d/postgresql start
+RUN rm /usr/local/var/postgres/postmaster.pid
 
 RUN mkdir $APP_ENV
 WORKDIR $APP_ENV
